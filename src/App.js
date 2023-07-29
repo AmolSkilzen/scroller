@@ -4,7 +4,7 @@ import { AutoScrollCards } from "./components/AutoScrollCards";
 function App() {
   return (
     <div>
-      <div class="max-w-[1400px] px-[15px] mx-auto">
+      <div className="max-w-[1400px] px-[15px] mx-auto">
         <h2>Scrolling Card UI With CSS Grid</h2>
         <AutoScrollCards />
       </div>

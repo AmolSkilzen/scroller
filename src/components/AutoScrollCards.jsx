@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
 import { ScrollCard } from "./ScrollCard";
+import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+
+import { animeData } from "../lib/Data";
 
 export const AutoScrollCards = () => {
   const [left, setLeft] = useState(false);
@@ -21,54 +24,22 @@ export const AutoScrollCards = () => {
         className="grid  grid-flow-col gap-[10px] py-[25px] overflow-x-scroll snap-x cards w-full scroll-smooth"
         ref={ref}
       >
-        <ScrollCard
-          title={"service 1"}
-          text={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem repudiandae, dolorum placeat velit tenetur dignissimos  vitae odit quisquam quas laudantium, sequi natus eos nisi ratione ipsum"
-          }
-        />
-        <ScrollCard
-          title={"service 2"}
-          text={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem repudiandae, dolorum placeat velit tenetur dignissimos  vitae odit quisquam quas laudantium, sequi natus eos nisi ratione ipsum"
-          }
-        />
-        <ScrollCard
-          title={"service 3"}
-          text={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem repudiandae, dolorum placeat velit tenetur dignissimos  vitae odit quisquam quas laudantium, sequi natus eos nisi ratione ipsum"
-          }
-        />
-        <ScrollCard
-          title={"service 4"}
-          text={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem repudiandae, dolorum placeat velit tenetur dignissimos  vitae odit quisquam quas laudantium, sequi natus eos nisi ratione ipsum"
-          }
-        />
-        <ScrollCard
-          title={"service 4"}
-          text={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem repudiandae, dolorum placeat velit tenetur dignissimos  vitae odit quisquam quas laudantium, sequi natus eos nisi ratione ipsum"
-          }
-        />
-        <ScrollCard
-          title={"service 4"}
-          text={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem repudiandae, dolorum placeat velit tenetur dignissimos  vitae odit quisquam quas laudantium, sequi natus eos nisi ratione ipsum"
-          }
-        />
-        <ScrollCard
-          title={"service 4"}
-          text={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem repudiandae, dolorum placeat velit tenetur dignissimos  vitae odit quisquam quas laudantium, sequi natus eos nisi ratione ipsum"
-          }
-        />
+        {animeData.map((anime) => (
+          <ScrollCard
+            key={anime.title}
+            title={anime.title}
+            text={anime.short_description}
+            bannerURL={anime.banner_img}
+          />
+        ))}
       </div>
-      <div className="flex justify-center items-center">
-        <button onClick={() => scroll(-300)} className="mr-8">
-          left
+      <div className="flex justify-center items-center mt-8">
+        <button onClick={() => scroll(-300)} className="mr-4 px-[20px]">
+          <FiArrowLeftCircle className=" text-3xl" />
         </button>
-        <button onClick={() => scroll(300)}>right</button>
+        <button onClick={() => scroll(300)} className="px-[20px]">
+          <FiArrowRightCircle className="text-3xl" />
+        </button>
       </div>
     </div>
   );

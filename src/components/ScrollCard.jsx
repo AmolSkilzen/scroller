@@ -1,18 +1,27 @@
 import React from "react";
 
-export const ScrollCard = ({ title, text }) => {
+export const ScrollCard = ({ title, text, bannerURL }) => {
   return (
-    <div class="flex flex-col p-[20px] bg-white rounded-xl shadow-md snap-start transition-all w-[fit]">
+    <div className="flex flex-col py-[20px] px-2 bg-white rounded-xl shadow-md snap-start transition-all w-[fit] min-h-[380px]">
       <div>
-        <h3 class="text-xl capitalize">{title}</h3>
-        <div class="my-[20px] max-w-[85%]">
-          <p>{text}</p>
+        <h3 className="text-base font-semibold capitalize">{title}</h3>
+
+        <div className="h-fit w-fit py-2">
+          <img
+            src={bannerURL}
+            alt="anime"
+            className="rounded-md h-[20vh] w-full"
+          />
+        </div>
+        <div className="mt-[2px] max-w-[85%] scrollbar">
+          <p className="max-h-[80px] overflow-y-scroll">{text}</p>
         </div>
       </div>
-      <div class="mt-auto">
+
+      <div class="mt-[16px]">
         <a
-          href=""
-          class="inline-block no-underline text-white bg-orange-400 px-[18px] py-[12px] rounded-md transition"
+          href="aniwatch.to"
+          className="inline-block no-underline text-white bg-orange-400 px-[18px] py-[12px] rounded-md transition"
         >
           Learn More
         </a>
